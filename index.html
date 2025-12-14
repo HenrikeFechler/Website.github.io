@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="title">My Gallery</h1>
+        <p class="subtitle">Clean framed layout — swap images in /images and update the list below.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="toolbar">
+        <div>
+          <h2 class="section-title">Pictures</h2>
+          <p class="section-note">Tip: keep filenames simple, e.g. <code>img-01.jpg</code>.</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <!-- Card 1 -->
+        <figure class="card">
+          <div class="frame">
+            <img src="images/img-01.jpg" alt="Image 01" loading="lazy" />
+          </div>
+          <figcaption class="caption">
+            <span class="caption-title">Caption 01</span>
+            <span class="caption-sub">Optional description</span>
+          </figcaption>
+        </figure>
+
+        <!-- Card 2 -->
+        <figure class="card">
+          <div class="frame">
+            <img src="images/img-02.jpg" alt="Image 02" loading="lazy" />
+          </div>
+          <figcaption class="caption">
+            <span class="caption-title">Caption 02</span>
+            <span class="caption-sub">Optional description</span>
+          </figcaption>
+        </figure>
+
+        <!-- Card 3 -->
+        <figure class="card">
+          <div class="frame">
+            <img src="images/img-03.jpg" alt="Image 03" loading="lazy" />
+          </div>
+          <figcaption class="caption">
+            <span class="caption-title">Caption 03</span>
+            <span class="caption-sub">Optional description</span>
+          </figcaption>
+        </figure>
+
+        <!-- Duplicate cards as needed -->
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Your Name</small>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
