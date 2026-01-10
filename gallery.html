@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" id="siteBrand" aria-label="Henrike Fechler" href="index.html#top">
+          <span class="brand-text">Henrike Fechler</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="index.html#artworks">ARTWORKS</a>
+          <a href="gallery.html">GALLERY</a>
+          <a href="index.html#about">ABOUT</a>
+          <a href="index.html#contact">CONTACT</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="section" id="gallery">
+        <header class="section-head">
+          <h1 class="section-title">Gallery</h1>
+          <p class="section-note">Scroll down — images fade in as they enter the viewport and fade out as they leave.</p>
+        </header>
+
+        <!-- JS will inject all images here -->
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <small>© <span id="year"></span> Your Name</small>
+      </div>
+    </footer>
+
+    <!-- Keep your existing brand-letter animation + year script -->
+    <script>
+      (function () {
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Brand letter animation (Option B)
+        const brand = document.getElementById("siteBrand");
+        if (brand) {
+          const textEl = brand.querySelector(".brand-text") || brand;
+          const text = textEl.textContent;
+          textEl.textContent = "";
+          [...text].forEach((ch, i) => {
+            const span = document.createElement("span");
+            span.className = "char";
+            span.style.setProperty("--i", i);
+            span.textContent = ch === " " ? "\u00A0" : ch;
+            textEl.appendChild(span);
+          });
+        }
+      })();
+    </script>
+
+    <!-- Gallery page behavior -->
+    <script src="gallery.js"></script>
+  </body>
+</html>
+

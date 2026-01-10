@@ -172,7 +172,7 @@ code {
   height: min(92vh, 860px);
   margin-bottom: 34px;
   overflow: hidden;
-  border-bottom: 1px solid var(--line);
+  /* border-bottom: 1px solid var(--line); */
 }
 
 .hero-slides {
@@ -311,7 +311,9 @@ code {
 
 .work-media img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;   /* try 3/2, 4/5, 1/1 etc. */
+  height: auto;          /* aspect-ratio handles it */
+  object-fit: cover;     /* crop to fill */
   display: block;
 }
 
@@ -354,6 +356,51 @@ code {
   font-size: 13px;
   line-height: 1.6;
 }
+
+/* -------------------- Gallery -------------------- */
+
+.gallery-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.fade-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: make images look consistent */
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fade-on-scroll {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
 
 /* -------------------- Lightbox (CSS :target) -------------------- */
 .lightbox {
