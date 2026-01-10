@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!--
+      HEAD:
+      - Metadata: charset + viewport for responsive layout
+      - Title shown in the browser tab
+      - Link to the stylesheet that controls all design and layout
+    -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Gallery</title>
@@ -8,9 +14,21 @@
   </head>
 
   <body>
+     <!--
+      STICKY HEADER / TOP NAV:
+      - Stays at top (CSS position: sticky)
+      - Contains the "brand" (your name) and section links
+      - Clicking nav items jumps to anchors (#artworks, #about, #contact)
+    -->
     <!-- Top navigation (minimal) -->
     <header class="site-header">
       <div class="shell">
+        <!--
+          BRAND / NAME:
+          - This is the text you want to animate letter-by-letter (Option B).
+          - We add id="siteBrand" so JS can split it into spans.
+          - aria-label preserves the full readable name for screen readers.
+        -->
         <a class="brand" href="#top">Henrike Fechler</a>
 
         <nav class="nav">
@@ -22,14 +40,29 @@
     </header>
 
     <!-- Full-viewport hero slideshow -->
+      <!--
+      HERO SECTION:
+      - Full-viewport slideshow background
+      - The images are absolutely positioned; CSS animates opacity (cross-fade)
+      - Overlay adds gradient + text and a "Scroll" CTA
+    -->
     <section class="hero" id="top" aria-label="Featured works">
       <div class="hero-slides">
         <!-- Replace these with your own hero images -->
+         <!-- HERO SLIDES:
+             - These are the 3 images that fade between each other (CSS keyframes)
+             - Replace the src files to change the slideshow images
+        -->
         <img class="hero-slide" src="figures/pic_1.jpg" alt="Featured artwork 1" />
         <img class="hero-slide" src="figures/pic_2.jpg" alt="Featured artwork 2" />
         <img class="hero-slide" src="figures/pic_3.jpg" alt="Featured artwork 3" />
       </div>
 
+      <!-- HERO OVERLAY:
+           - Visual: gradient overlay to improve readability over images
+           - Text: kicker + subtitle
+           - CTA: anchor jump down to the artworks section
+      -->
       <div class="hero-overlay">
         <div class="hero-copy">
           <div class="hero-kicker">SELECTED WORKS</div>
@@ -39,8 +72,19 @@
       </div>
     </section>
 
+    <!--
+      MAIN CONTENT WRAPPER (.shell):
+      - Centers content and limits max width (CSS --max)
+      - Contains your 3 sections: artworks, about, contact
+    -->
     <main class="shell">
       <!-- Works / “selected works” section -->
+       <!--
+        ARTWORKS SECTION:
+        - "Selected works" header area
+        - Optional highlight block
+        - Editorial list: each work is an <article> with image + metadata
+      -->
       <section class="section" id="artworks">
         <header class="section-head">
           <h1 class="section-title">Selected works</h1>
@@ -50,6 +94,9 @@
         </header>
 
         <!-- Optional “highlight” block -->
+         <!-- HIGHLIGHT BLOCK (optional):
+             - A callout area for a featured series / exhibition / statement
+        -->
         <div class="highlight">
           <div class="highlight-title">HIGHLIGHT</div>
           <div class="highlight-body">
@@ -58,6 +105,11 @@
         </div>
 
         <!-- Editorial list of works -->
+         <!-- WORKS LIST:
+             - Each article has:
+               (1) clickable image container .work-media (opens lightbox via #full-work-XX)
+               (2) .work-meta (title + medium/size/year line)
+        -->
         <div class="works">
           <!-- WORK 01 -->
           <article class="work" id="work-01">
@@ -119,32 +171,62 @@
     </main>
 
     <!-- LIGHTBOXES (pure CSS :target) -->
+     <!--
+      LIGHTBOXES (CSS-only using :target):
+      - Clicking a work uses href="#full-work-01" etc.
+      - The corresponding <div id="full-work-01"> becomes :target and displays
+      - Close button is a link back to "#work-01" (removes :target from lightbox)
+    -->
     <div class="lightbox" id="full-work-01" aria-label="Fullsize work 01">
       <a class="lightbox-close" href="#work-01" aria-label="Close fullsize view">×</a>
-      <img src="figures/painting-01.jpg" alt="Painting 01 fullsize" />
+      <img src="figures/pic_1.jpg" alt="Painting 01 fullsize" />
       <div class="lightbox-caption">Title 01 — Oil on canvas • 60 × 80 cm • 2026</div>
     </div>
 
     <div class="lightbox" id="full-work-02" aria-label="Fullsize work 02">
       <a class="lightbox-close" href="#work-02" aria-label="Close fullsize view">×</a>
-      <img src="figures/painting-02.jpg" alt="Painting 02 fullsize" />
+      <img src="figures/pic_2.jpg" alt="Painting 02 fullsize" />
       <div class="lightbox-caption">Title 02 — Acrylic • 50 × 70 cm • 2026</div>
     </div>
 
     <div class="lightbox" id="full-work-03" aria-label="Fullsize work 02">
       <a class="lightbox-close" href="#work-03" aria-label="Close fullsize view">×</a>
-      <img src="figures/painting-02.jpg" alt="Painting 03 fullsize" />
+      <img src="figures/pic_3.jpg" alt="Painting 03 fullsize" />
       <div class="lightbox-caption">Title 03 — Acrylic • 50 × 70 cm • 2026</div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="shell">
         <small>© <span id="year"></span> Your Name</small>
       </div>
     </footer>
 
+    <!--
+      SCRIPT:
+      - Sets the year in the footer
+      - Option B: splits the brand name into <span class="char">...</span>
+        and each character fades in with a staggered delay.
+    -->
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Option B: letter-by-letter fade-in for the brand name
+      const brand = document.getElementById("siteBrand");
+      if (brand) {
+        const text = brand.textContent;
+        brand.textContent = "";
+
+        [...text].forEach((ch, i) => {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.style.setProperty("--i", i);
+          // preserve spaces
+          span.textContent = ch === " " ? "\u00A0" : ch;
+          brand.appendChild(span);
+        });
+      }
+
     </script>
   </body>
 </html>
