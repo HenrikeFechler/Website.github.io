@@ -136,13 +136,13 @@ code {
 
 /* Small mark next to the name */
 .brand-mark {
-  width: 18px;         /* adjust */
-  height: 18px;        /* adjust */
+  width: 32px;         /* adjust */
+  height: 32px;        /* adjust */
   object-fit: contain;
   opacity: 0;
   transform: translateY(6px);
   animation: brandMarkIn 520ms ease forwards;
-  animation-delay: 720ms; /* slightly before/with first letters */
+  animation-delay: 520ms; /* slightly before/with first letters */
 }
 
 @keyframes brandMarkIn {
