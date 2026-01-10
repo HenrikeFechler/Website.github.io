@@ -7,6 +7,15 @@
     { src: "figures/pic_1.jpg", alt: "Artwork 1" },
     { src: "figures/pic_2.jpg", alt: "Artwork 2" },
     { src: "figures/pic_3.jpg", alt: "Artwork 3" },
+    { src: "figures/pic_4.jpg", alt: "Artwork 4" },
+    { src: "figures/pic_5.jpg", alt: "Artwork 5" },
+    { src: "figures/pic_6.jpg", alt: "Artwork 6" },
+    { src: "figures/pic_7.jpg", alt: "Artwork 7" },
+    { src: "figures/pic_8.jpg", alt: "Artwork 8" },
+    { src: "figures/pic_9.jpg", alt: "Artwork 9" },
+    { src: "figures/pic_10.jpg", alt: "Artwork 10" },
+    { src: "figures/pic_11.jpg", alt: "Artwork 11" },
+
 
     // If you have more:
     // { src: "figures/painting-01.jpg", alt: "Painting 01" },
