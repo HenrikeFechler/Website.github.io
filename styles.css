@@ -1,4 +1,4 @@
-/* --------- Base / Reset --------- */
+/* -------------------- Base -------------------- */
 *,
 *::before,
 *::after {
@@ -6,13 +6,15 @@
 }
 
 :root {
-  --bg: #0b0d12;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel-border: rgba(255, 255, 255, 0.12);
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.70);
-  --shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
-  --radius: 16px;
+  --paper: #f6f2ea;
+  --paper-2: #fbf9f4;
+  --ink: #141414;
+  --muted: rgba(20, 20, 20, 0.65);
+  --line: rgba(20, 20, 20, 0.14);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+
+  --radius: 14px;
+  --max: 1080px;
 }
 
 html,
@@ -22,139 +24,322 @@ body {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-    Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(1200px 800px at 20% 0%, #1a2240 0%, var(--bg) 55%);
-  color: var(--text);
-  line-height: 1.5;
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1100px 700px at 20% 0%, var(--paper-2), var(--paper));
 }
 
-/* --------- Layout --------- */
-.container {
-  width: min(1100px, calc(100% - 48px));
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95em;
+}
+
+/* -------------------- Layout shell -------------------- */
+.shell {
+  width: min(var(--max), calc(100% - 56px));
   margin: 0 auto;
 }
 
+/* -------------------- Header / Nav -------------------- */
 .site-header {
-  padding: 44px 0 18px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  border-bottom: 1px solid var(--line);
 }
 
-.title {
-  margin: 0 0 6px;
-  font-size: clamp(28px, 3.5vw, 44px);
-  letter-spacing: -0.02em;
-}
-
-.subtitle {
-  margin: 0;
-  color: var(--muted);
-  max-width: 70ch;
-}
-
-.toolbar {
+.site-header .shell {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  letter-spacing: 0.22em;
+  font-size: 12px;
+}
+
+.nav {
+  display: flex;
   gap: 18px;
-  margin: 22px 0 16px;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+}
+
+.nav a {
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* -------------------- Hero slideshow -------------------- */
+.hero {
+  position: relative;
+  height: min(92vh, 860px);
+  margin-bottom: 34px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  animation: heroFade 18s infinite;
+  transform: scale(1.02);
+}
+
+/* 3 slides stagger */
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 6s; }
+.hero-slide:nth-child(3) { animation-delay: 12s; }
+
+@keyframes heroFade {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  30% { opacity: 1; }
+  38% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  padding: 28px 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0));
+}
+
+.hero-copy {
+  width: min(var(--max), calc(100% - 56px));
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-kicker {
+  letter-spacing: 0.28em;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.hero-sub {
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  width: min(var(--max), calc(100% - 56px));
+  margin: 14px auto 0;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+/* -------------------- Sections -------------------- */
+.section {
+  padding: 44px 0;
+}
+
+.section-head {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-bottom: 26px;
 }
 
 .section-title {
   margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   font-size: 18px;
-  letter-spacing: 0.01em;
 }
 
 .section-note {
-  margin: 6px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
-  font-size: 13px;
-}
-
-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  font-size: 0.95em;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0.15em 0.4em;
-  border-radius: 8px;
-}
-
-/* --------- Grid --------- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  padding-bottom: 40px;
-}
-
-.card {
-  grid-column: span 12;
-  margin: 0;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  transition: transform 160ms ease, border-color 160ms ease;
-}
-
-@media (min-width: 700px) {
-  .card {
-    grid-column: span 6;
-  }
-}
-
-@media (min-width: 980px) {
-  .card {
-    grid-column: span 4;
-  }
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-/* --------- “Frame” around image --------- */
-.frame {
-  padding: 14px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-}
-
-.frame img {
-  width: 100%;
-  height: 260px;
-  display: block;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-/* --------- Caption --------- */
-.caption {
-  display: grid;
-  gap: 4px;
-  padding: 14px 16px 16px;
-}
-
-.caption-title {
-  font-weight: 600;
+  line-height: 1.7;
   font-size: 14px;
 }
 
-.caption-sub {
+.highlight {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.35);
+  padding: 18px 18px;
+  margin: 18px 0 30px;
+}
+
+.highlight-title {
+  letter-spacing: 0.26em;
+  font-size: 11px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.highlight-body {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* -------------------- Works list (editorial) -------------------- */
+.works {
+  display: grid;
+  gap: 34px;
+}
+
+.work {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-media {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.work-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.work-fullsize {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  text-transform: uppercase;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.52);
+  color: rgba(255, 255, 255, 0.92);
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 160ms ease;
+}
+
+.work-media:hover .work-fullsize {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-meta {
+  padding-top: 14px;
+}
+
+.work-title {
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.work-sub {
+  margin-top: 6px;
+  color: var(--muted);
   font-size: 13px;
-  color: var(--muted);
+  line-height: 1.6;
 }
 
-/* --------- Footer --------- */
+/* -------------------- Lightbox (CSS :target) -------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.86);
+  z-index: 100;
+  display: none;
+  padding: 28px 18px;
+}
+
+.lightbox:target {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 16px;
+}
+
+.lightbox img {
+  width: min(1100px, 96vw);
+  height: auto;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lightbox-caption {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* -------------------- Footer -------------------- */
 .site-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  padding: 18px 0 26px;
+  border-top: 1px solid var(--line);
+  padding: 18px 0 34px;
   color: var(--muted);
+  font-size: 13px;
 }
 
+/* -------------------- Responsive tweaks -------------------- */
+@media (min-width: 920px) {
+  .works {
+    gap: 44px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}

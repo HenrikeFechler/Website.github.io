@@ -3,66 +3,142 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>My Gallery</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- Top navigation (minimal) -->
     <header class="site-header">
-      <div class="container">
-        <h1 class="title">My Gallery</h1>
-        <p class="subtitle">Clean framed layout — swap images in /images and update the list below.</p>
+      <div class="shell">
+        <a class="brand" href="#top">Henrike Fechler</a>
+
+        <nav class="nav">
+          <a href="#artworks">ARTWORKS</a>
+          <a href="#about">ABOUT</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
       </div>
     </header>
 
-    <main class="container">
-      <section class="toolbar">
-        <div>
-          <h2 class="section-title">Pictures</h2>
-          <p class="section-note">Tip: keep filenames simple, e.g. <code>img-01.jpg</code>.</p>
+    <!-- Full-viewport hero slideshow -->
+    <section class="hero" id="top" aria-label="Featured works">
+      <div class="hero-slides">
+        <!-- Replace these with your own hero images -->
+        <img class="hero-slide" src="figures/pic_1.jpg" alt="Featured artwork 1" />
+        <img class="hero-slide" src="figures/pic_2.jpg" alt="Featured artwork 2" />
+        <img class="hero-slide" src="figures/pic_3.jpg" alt="Featured artwork 3" />
+      </div>
+
+      <div class="hero-overlay">
+        <div class="hero-copy">
+          <div class="hero-kicker">SELECTED WORKS</div>
+          <div class="hero-sub">A minimalist portfolio layout that prioritizes the image.</div>
+        </div>
+        <a class="hero-cta" href="#artworks">Scroll</a>
+      </div>
+    </section>
+
+    <main class="shell">
+      <!-- Works / “selected works” section -->
+      <section class="section" id="artworks">
+        <header class="section-head">
+          <h1 class="section-title">Selected works</h1>
+          <p class="section-note">
+            Tip: keep filenames simple and stable. Put images in <code>/figures</code>, then update the list here.
+          </p>
+        </header>
+
+        <!-- Optional “highlight” block -->
+        <div class="highlight">
+          <div class="highlight-title">HIGHLIGHT</div>
+          <div class="highlight-body">
+            Replace this with a short project note (series name, exhibition note, etc.).
+          </div>
+        </div>
+
+        <!-- Editorial list of works -->
+        <div class="works">
+          <!-- WORK 01 -->
+          <article class="work" id="work-01">
+            <a class="work-media" href="#full-work-01">
+              <img src="figures/pic_1.jpg" alt="Painting 01" loading="lazy" />
+              <span class="work-fullsize">View fullsize</span>
+            </a>
+            <div class="work-meta">
+              <div class="work-title">Title 01</div>
+              <div class="work-sub">Oil on canvas • 60 × 80 cm • 2026</div>
+            </div>
+          </article>
+
+          <!-- WORK 02 -->
+          <article class="work" id="work-02">
+            <a class="work-media" href="#full-work-02">
+              <img src="figures/pic_2.jpg" alt="Painting 02" loading="lazy" />
+              <span class="work-fullsize">View fullsize</span>
+            </a>
+            <div class="work-meta">
+              <div class="work-title">Title 02</div>
+              <div class="work-sub">Acrylic • 50 × 70 cm • 2026</div>
+            </div>
+          </article>
+
+          <!-- WORK 03 -->
+          <article class="work" id="work-03">
+            <a class="work-media" href="#full-work-03">
+              <img src="figures/pic_3.jpg" alt="Painting 03" loading="lazy" />
+              <span class="work-fullsize">View fullsize</span>
+            </a>
+            <div class="work-meta">
+              <div class="work-title">Title 03</div>
+              <div class="work-sub">Acrylic • 50 × 70 cm • 2026</div>
+            </div>
+          </article>
+
+          <!-- Duplicate as needed -->
         </div>
       </section>
 
-      <section class="grid">
-        <!-- Card 1 -->
-        <figure class="card">
-          <div class="frame">
-            <img src="figures/pic_1.jpg" alt="Image 01" loading="lazy" />
-          </div>
-          <figcaption class="caption">
-            <span class="caption-title">Caption 01</span>
-            <span class="caption-sub">Optional description</span>
-          </figcaption>
-        </figure>
+      <section class="section" id="about">
+        <header class="section-head">
+          <h2 class="section-title">About</h2>
+          <p class="section-note">
+            Short bio / statement. Keep it brief—this style works best when the work stays primary.
+          </p>
+        </header>
+      </section>
 
-        <!-- Card 2 -->
-        <figure class="card">
-          <div class="frame">
-            <img src="figures/pic_2.jpg" alt="Image 02" loading="lazy" />
-          </div>
-          <figcaption class="caption">
-            <span class="caption-title">Caption 02</span>
-            <span class="caption-sub">Optional description</span>
-          </figcaption>
-        </figure>
-
-        <!-- Card 3 -->
-        <figure class="card">
-          <div class="frame">
-            <img src="figures/pic_3.jpg" alt="Image 03" loading="lazy" />
-          </div>
-          <figcaption class="caption">
-            <span class="caption-title">Caption 03</span>
-            <span class="caption-sub">Optional description</span>
-          </figcaption>
-        </figure>
-
-        <!-- Duplicate cards as needed -->
+      <section class="section" id="contact">
+        <header class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-note">
+            Email: <a href="mailto:you@example.com">you@example.com</a>
+          </p>
+        </header>
       </section>
     </main>
 
+    <!-- LIGHTBOXES (pure CSS :target) -->
+    <div class="lightbox" id="full-work-01" aria-label="Fullsize work 01">
+      <a class="lightbox-close" href="#work-01" aria-label="Close fullsize view">×</a>
+      <img src="figures/painting-01.jpg" alt="Painting 01 fullsize" />
+      <div class="lightbox-caption">Title 01 — Oil on canvas • 60 × 80 cm • 2026</div>
+    </div>
+
+    <div class="lightbox" id="full-work-02" aria-label="Fullsize work 02">
+      <a class="lightbox-close" href="#work-02" aria-label="Close fullsize view">×</a>
+      <img src="figures/painting-02.jpg" alt="Painting 02 fullsize" />
+      <div class="lightbox-caption">Title 02 — Acrylic • 50 × 70 cm • 2026</div>
+    </div>
+
+    <div class="lightbox" id="full-work-03" aria-label="Fullsize work 02">
+      <a class="lightbox-close" href="#work-03" aria-label="Close fullsize view">×</a>
+      <img src="figures/painting-02.jpg" alt="Painting 03 fullsize" />
+      <div class="lightbox-caption">Title 03 — Acrylic • 50 × 70 cm • 2026</div>
+    </div>
+
     <footer class="site-footer">
-      <div class="container">
+      <div class="shell">
         <small>© <span id="year"></span> Your Name</small>
       </div>
     </footer>
@@ -72,4 +148,3 @@
     </script>
   </body>
 </html>
-
