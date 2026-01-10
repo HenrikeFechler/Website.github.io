@@ -136,8 +136,8 @@ code {
 
 /* Small mark next to the name */
 .brand-mark {
-  width: 22px;         /* adjust */
-  height: 22px;        /* adjust */
+  width: 2px;         /* adjust */
+  height: 2px;        /* adjust */
   object-fit: contain;
   opacity: 0;
   transform: translateY(6px);
