@@ -67,6 +67,64 @@ code {
   font-size: 12px;
 }
 
+/* -------------------- Header / Nav -------------------- */
+/*
+  .site-header:
+  - sticky header with backdrop blur, so navigation stays visible while scrolling
+  - subtle border line separates header from content
+*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+/*
+  .brand:
+  - top-left name/identity text
+  - letter-spacing creates the “gallery identity” look
+*/
+.brand {
+  letter-spacing: 0.22em;
+  font-size: 12px;
+}
+
+/* Option B: character-by-character fade-in for the brand name */
+.brand .char {
+  display: inline-block;            /* required for transforms per character */
+  opacity: 0;                       /* start hidden */
+  transform: translateY(6px);       /* subtle motion; remove if you want pure fade */
+  animation: brandCharIn 520ms ease forwards;
+  animation-delay: calc(var(--i) * 55ms);
+}
+
+/* Animation used by .brand .char */
+@keyframes brandCharIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .brand .char {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .nav {
   display: flex;
   gap: 18px;
