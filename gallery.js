@@ -15,6 +15,8 @@
     { src: "figures/pic_9.jpg", alt: "Artwork 9" },
     { src: "figures/pic_10.jpg", alt: "Artwork 10" },
     { src: "figures/pic_11.jpg", alt: "Artwork 11" },
+    { src: "figures/pic_12.jpg", alt: "Artwork 12" },
+
 
 
     // If you have more:
