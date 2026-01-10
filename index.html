@@ -29,7 +29,7 @@
           - We add id="siteBrand" so JS can split it into spans.
           - aria-label preserves the full readable name for screen readers.
         -->
-        <a class="brand" href="#top">Henrike Fechler</a>
+        <a class="brand" id="siteBrand" aria-label="Henrike Fechler" href="#top">Henrike Fechler</a>
 
         <nav class="nav">
           <a href="#artworks">ARTWORKS</a>
@@ -209,11 +209,15 @@
         and each character fades in with a staggered delay.
     -->
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        // Footer year (keep existing behavior)
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Option B: letter-by-letter fade-in for the brand name
-      const brand = document.getElementById("siteBrand");
-      if (brand) {
+        // Option B: letter-by-letter fade for the brand name
+        const brand = document.getElementById("siteBrand");
+        if (!brand) return;
+
         const text = brand.textContent;
         brand.textContent = "";
 
@@ -221,12 +225,11 @@
           const span = document.createElement("span");
           span.className = "char";
           span.style.setProperty("--i", i);
-          // preserve spaces
-          span.textContent = ch === " " ? "\u00A0" : ch;
+          span.textContent = ch === " " ? "\u00A0" : ch; // preserve spaces
           brand.appendChild(span);
         });
-      }
-
+      })();
     </script>
+
   </body>
 </html>
