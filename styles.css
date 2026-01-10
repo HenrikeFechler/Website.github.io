@@ -95,8 +95,11 @@ code {
   - letter-spacing creates the “gallery identity” look
 */
 .brand {
-  letter-spacing: 0.22em;
-  font-size: 12px;
+  font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+  font-size: clamp(16px, 1.6vw, 22px);
+  letter-spacing: 0.10em;
+  font-weight: 600;
+  text-transform: uppercase; /* optional; remove if you prefer natural case */
 }
 
 /* Option B: character-by-character fade-in for the brand name */
@@ -123,6 +126,27 @@ code {
     opacity: 1;
     transform: none;
   }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Small mark next to the name */
+.brand-mark {
+  width: 22px;         /* adjust */
+  height: 22px;        /* adjust */
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: brandMarkIn 520ms ease forwards;
+  animation-delay: 720ms; /* slightly before/with first letters */
+}
+
+@keyframes brandMarkIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .nav {

@@ -10,7 +10,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Gallery</title>
+    
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -29,7 +33,10 @@
           - We add id="siteBrand" so JS can split it into spans.
           - aria-label preserves the full readable name for screen readers.
         -->
-        <a class="brand" id="siteBrand" aria-label="Henrike Fechler" href="#top">Henrike Fechler</a>
+        <a class="brand" id="siteBrand" aria-label="Henrike Fechler" href="#top">
+          <img class="brand-mark" src="figures/pic_1.jpg" alt="" aria-hidden="true">
+          <span class="brand-text">Henrike Fechler</span>
+        </a>
 
         <nav class="nav">
           <a href="#artworks">ARTWORKS</a>
@@ -218,15 +225,18 @@
         const brand = document.getElementById("siteBrand");
         if (!brand) return;
 
-        const text = brand.textContent;
-        brand.textContent = "";
+        const textEl = brand.querySelector(".brand-text");
+        if (!textEl) return;
+
+        const text = textEl.textContent;
+        textEl.textContent = "";
 
         [...text].forEach((ch, i) => {
           const span = document.createElement("span");
           span.className = "char";
           span.style.setProperty("--i", i);
           span.textContent = ch === " " ? "\u00A0" : ch; // preserve spaces
-          brand.appendChild(span);
+          textEl.appendChild(span);
         });
       })();
     </script>
