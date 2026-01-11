@@ -26,9 +26,8 @@
     Group exhibitions
 
     2025 Stations, ESMOA, Los Angeles
-    2025 Opened, Freeters, Bonn`
-    };
-
+    2025 Opened, Freeters, Bonn`;
+    }
   });
   // New: mobile menu toggle
     const header = document.getElementById("siteHeader");
