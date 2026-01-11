@@ -17,18 +17,18 @@
     span.style.setProperty("--i", i);
     span.textContent = ch === " " ? "\u00A0" : ch;
     textEl.appendChild(span);
-
-    const cv = document.getElementById("cvText");
-    if (cv) {
-      cv.textContent = `Born 2004, Stromberg, Germany
-    Since 2023, studying at Kunstakademie Münster
-
-    Group exhibitions
-
-    2025 Stations, ESMOA, Los Angeles
-    2025 Opened, Freeters, Bonn`;
-    }
   });
+
+  const cv = document.getElementById("cvText"); // or "aboutText" if that's your HTML id
+  if (cv) {
+      cv.textContent = `Born 2004, Stromberg, Germany
+  Since 2023, studying at Kunstakademie Münster
+
+  Group exhibitions
+
+  2025 Stations, ESMOA, Los Angeles
+  2025 Opened, Freeters, Bonn`;
+    }
   // New: mobile menu toggle
     const header = document.getElementById("siteHeader");
     const toggle = document.getElementById("navToggle");
