@@ -267,7 +267,7 @@ code {
   object-fit: cover;
 
   opacity: 0;
-  animation: heroFade 18s infinite;
+  animation: heroFade 24s infinite;
   transform: scale(1.02);
 }
 
