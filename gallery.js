@@ -1,9 +1,8 @@
 // gallery.js
 (function () {
-  // 1) Maintain a manifest of your images.
-  //    This is the reliable static-site way (GitHub Pages can’t list folders automatically).
+  console.log("[gallery] gallery.js loaded");
+
   const images = [
-    // Replace/add files that exist in /figures
     { src: "figures/pic_1.jpg", alt: "Artwork 1", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_2.jpg", alt: "Artwork 2", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_3.jpg", alt: "Artwork 3", caption: "Oil on canvas • 2026" },
@@ -15,17 +14,15 @@
     { src: "figures/pic_9.jpg", alt: "Artwork 9", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_10.jpg", alt: "Artwork 10", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_11.jpg", alt: "Artwork 11", caption: "Oil on canvas • 2026" },
-
-    // If you have more:
-    // { src: "figures/painting-01.jpg", alt: "Painting 01" },
-    // { src: "figures/painting-02.jpg", alt: "Painting 02" },
-    // { src: "figures/painting-03.jpg", alt: "Painting 03" },
   ];
 
   const grid = document.getElementById("galleryGrid");
-  if (!grid) return;
+  if (!grid) {
+    console.warn("[gallery] #galleryGrid not found");
+    return;
+  }
 
-  // 2) Render the gallery items
+  // Render gallery
   for (let i = 0; i < images.length; i++) {
     const item = images[i];
 
@@ -42,33 +39,16 @@
     grid.appendChild(figure);
   }
 
-  // 3) Scroll-triggered fade in/out
-  const els = document.querySelectorAll(".fade-on-scroll");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        } else {
-          // remove when leaving viewport → fades out
-          entry.target.classList.remove("is-visible");
-        }
-      }
-    },
-    {
-      threshold: 0.18,
-      // This makes it feel smoother: start fade-in slightly before fully in view,
-      // and fade-out after it leaves most of the viewport.
-      rootMargin: "0px 0px -10% 0px",
-    }
-  );
-
-  // -------------------- Gallery Lightbox --------------------
+  // -------------------- Lightbox --------------------
   const lb = document.getElementById("galleryLightbox");
   const lbImg = document.getElementById("galleryLightboxImg");
   const lbCaption = document.getElementById("galleryLightboxCaption");
   const lbClose = lb ? lb.querySelector(".lightbox-close") : null;
+
+  if (!lb || !lbImg) {
+    console.warn("[gallery] lightbox elements missing:", { lb, lbImg });
+    // Still continue with fade logic
+  }
 
   let currentIndex = -1;
 
@@ -82,13 +62,10 @@
 
     lbImg.src = item.src;
     lbImg.alt = item.alt || "";
-
     if (lbCaption) lbCaption.textContent = item.caption || item.alt || "";
 
     lb.classList.add("is-open");
     lb.setAttribute("aria-hidden", "false");
-
-    // Prevent background scroll (optional but recommended)
     document.body.style.overflow = "hidden";
   }
 
@@ -97,53 +74,63 @@
 
     lb.classList.remove("is-open");
     lb.setAttribute("aria-hidden", "true");
-
-    // Release background scroll
     document.body.style.overflow = "";
 
-    // Optional: stop loading big image when closed
+    // optional: stop loading when closed
     if (lbImg) lbImg.src = "";
   }
 
-  if (grid) {
-    grid.addEventListener("click", (e) => {
-      const figure = e.target.closest(".gallery-item");
-      if (!figure) return;
+  // Click any gallery item -> open
+  grid.addEventListener("click", (e) => {
+    const figure = e.target.closest(".gallery-item");
+    if (!figure) return;
 
-      const index = Number(figure.dataset.index);
-      if (!Number.isFinite(index)) return;
+    const index = Number(figure.dataset.index);
+    if (!Number.isFinite(index)) return;
 
-      openLightbox(index);
-    });
-  }
+    console.log("[gallery] open lightbox index:", index);
+    openLightbox(index);
+  });
 
+  // Close button
   if (lbClose) {
     lbClose.addEventListener("click", closeLightbox);
   }
 
-  // Close when clicking the dark backdrop (but not when clicking the image/caption)
+  // Click backdrop to close
   if (lb) {
     lb.addEventListener("click", (e) => {
       if (e.target === lb) closeLightbox();
     });
   }
 
-  // Keyboard: ESC closes, arrows navigate (optional but useful)
+  // Keyboard
   document.addEventListener("keydown", (e) => {
     if (!lb || !lb.classList.contains("is-open")) return;
 
     if (e.key === "Escape") closeLightbox();
-
-    if (e.key === "ArrowRight") {
-      openLightbox((currentIndex + 1) % images.length);
-    }
-
-    if (e.key === "ArrowLeft") {
-      openLightbox((currentIndex - 1 + images.length) % images.length);
-    }
+    if (e.key === "ArrowRight") openLightbox((currentIndex + 1) % images.length);
+    if (e.key === "ArrowLeft") openLightbox((currentIndex - 1 + images.length) % images.length);
   });
 
+  // -------------------- Fade in/out on scroll --------------------
+  const els = document.querySelectorAll(".fade-on-scroll");
+
+  // Fallback if IntersectionObserver is not available
+  if (!("IntersectionObserver" in window)) {
+    console.warn("[gallery] IntersectionObserver not supported; showing all images");
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.classList.toggle("is-visible", entry.isIntersecting);
+      }
+    },
+    { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
+  );
 
   els.forEach((el) => observer.observe(el));
 })();
-
