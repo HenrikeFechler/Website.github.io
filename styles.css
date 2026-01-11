@@ -369,6 +369,8 @@ code {
   font-size: 14px;
 }
 
+.preline { white-space: pre-line; }
+
 /* -------------------- Works list (editorial) -------------------- */
 .works {
   display: grid;
