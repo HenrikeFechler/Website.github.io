@@ -58,9 +58,9 @@
       if (window.matchMedia("(min-width: 721px)").matches) closeMenu();
     });
 
-    const about = document.getElementById("aboutText");
-    if (about) {
-      about.textContent = `Born 2004, Stromberg, Germany
+    const cv = document.getElementById("cvText");
+    if (cv) {
+      cv.textContent = `Born 2004, Stromberg, Germany
     Since 2023, studying at Kunstakademie Münster
 
     Group exhibitions
