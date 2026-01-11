@@ -519,6 +519,20 @@ code {
   text-align: center;
 }
 
+/* Allow JS-opened lightbox in Gallery */
+.lightbox.is-open {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 16px;
+}
+
+/* If your close element is a <button> (recommended), normalize it */
+.lightbox-close {
+  cursor: pointer;
+  appearance: none;
+}
+
 .lightbox-close {
   position: fixed;
   top: 14px;

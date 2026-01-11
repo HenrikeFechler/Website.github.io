@@ -4,20 +4,17 @@
   //    This is the reliable static-site way (GitHub Pages can’t list folders automatically).
   const images = [
     // Replace/add files that exist in /figures
-    { src: "figures/pic_1.jpg", alt: "Artwork 1" },
-    { src: "figures/pic_2.jpg", alt: "Artwork 2" },
-    { src: "figures/pic_3.jpg", alt: "Artwork 3" },
-    { src: "figures/pic_4.jpg", alt: "Artwork 4" },
-    { src: "figures/pic_5.jpg", alt: "Artwork 5" },
-    { src: "figures/pic_6.jpg", alt: "Artwork 6" },
-    { src: "figures/pic_7.jpg", alt: "Artwork 7" },
-    { src: "figures/pic_8.jpg", alt: "Artwork 8" },
-    { src: "figures/pic_9.jpg", alt: "Artwork 9" },
-    { src: "figures/pic_10.jpg", alt: "Artwork 10" },
-    { src: "figures/pic_11.jpg", alt: "Artwork 11" },
-
-
-
+    { src: "figures/pic_1.jpg", alt: "Artwork 1", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_2.jpg", alt: "Artwork 2", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_3.jpg", alt: "Artwork 3", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_4.jpg", alt: "Artwork 4", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_5.jpg", alt: "Artwork 5", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_6.jpg", alt: "Artwork 6", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_7.jpg", alt: "Artwork 7", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_8.jpg", alt: "Artwork 8", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_9.jpg", alt: "Artwork 9", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_10.jpg", alt: "Artwork 10", caption: "Oil on canvas • 2026" },
+    { src: "figures/pic_11.jpg", alt: "Artwork 11", caption: "Oil on canvas • 2026" },
 
     // If you have more:
     // { src: "figures/painting-01.jpg", alt: "Painting 01" },
@@ -29,9 +26,12 @@
   if (!grid) return;
 
   // 2) Render the gallery items
-  for (const item of images) {
+  for (let i = 0; i < images.length; i++) {
+    const item = images[i];
+
     const figure = document.createElement("figure");
     figure.className = "gallery-item fade-on-scroll";
+    figure.dataset.index = String(i);
 
     const img = document.createElement("img");
     img.src = item.src;
@@ -63,6 +63,86 @@
       rootMargin: "0px 0px -10% 0px",
     }
   );
+
+  // -------------------- Gallery Lightbox --------------------
+  const lb = document.getElementById("galleryLightbox");
+  const lbImg = document.getElementById("galleryLightboxImg");
+  const lbCaption = document.getElementById("galleryLightboxCaption");
+  const lbClose = lb ? lb.querySelector(".lightbox-close") : null;
+
+  let currentIndex = -1;
+
+  function openLightbox(index) {
+    if (!lb || !lbImg) return;
+
+    const item = images[index];
+    if (!item) return;
+
+    currentIndex = index;
+
+    lbImg.src = item.src;
+    lbImg.alt = item.alt || "";
+
+    if (lbCaption) lbCaption.textContent = item.caption || item.alt || "";
+
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+
+    // Prevent background scroll (optional but recommended)
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lb) return;
+
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+
+    // Release background scroll
+    document.body.style.overflow = "";
+
+    // Optional: stop loading big image when closed
+    if (lbImg) lbImg.src = "";
+  }
+
+  if (grid) {
+    grid.addEventListener("click", (e) => {
+      const figure = e.target.closest(".gallery-item");
+      if (!figure) return;
+
+      const index = Number(figure.dataset.index);
+      if (!Number.isFinite(index)) return;
+
+      openLightbox(index);
+    });
+  }
+
+  if (lbClose) {
+    lbClose.addEventListener("click", closeLightbox);
+  }
+
+  // Close when clicking the dark backdrop (but not when clicking the image/caption)
+  if (lb) {
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+  }
+
+  // Keyboard: ESC closes, arrows navigate (optional but useful)
+  document.addEventListener("keydown", (e) => {
+    if (!lb || !lb.classList.contains("is-open")) return;
+
+    if (e.key === "Escape") closeLightbox();
+
+    if (e.key === "ArrowRight") {
+      openLightbox((currentIndex + 1) % images.length);
+    }
+
+    if (e.key === "ArrowLeft") {
+      openLightbox((currentIndex - 1 + images.length) % images.length);
+    }
+  });
+
 
   els.forEach((el) => observer.observe(el));
 })();
