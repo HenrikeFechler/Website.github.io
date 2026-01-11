@@ -65,44 +65,5 @@
   );
 
   els.forEach((el) => observer.observe(el));
-  // New: mobile menu toggle
-    const header = document.getElementById("siteHeader");
-    const toggle = document.getElementById("navToggle");
-    const nav = document.getElementById("siteNav");
-
-    if (!header || !toggle || !nav) return;
-
-    const closeMenu = () => {
-      header.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Open menu");
-    };
-
-    const openMenu = () => {
-      header.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
-      toggle.setAttribute("aria-label", "Close menu");
-    };
-
-    toggle.addEventListener("click", () => {
-      const isOpen = header.classList.contains("is-open");
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    // Close when clicking a nav link (mobile UX)
-    nav.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (a) closeMenu();
-    });
-
-    // Close on Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-
-    // Optional: close if resizing to desktop
-    window.addEventListener("resize", () => {
-      if (window.matchMedia("(min-width: 721px)").matches) closeMenu();
-    });
 })();
 
