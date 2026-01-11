@@ -269,6 +269,7 @@ code {
   opacity: 0;
   animation: heroFade 24s infinite;
   transform: scale(1.02);
+  animation-fill-mode: both; /* helps avoid “blank” states at boundaries */
 }
 
 /* 3 slides stagger */
