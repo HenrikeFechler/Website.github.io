@@ -14,6 +14,8 @@
     { src: "figures/pic_9.jpg", alt: "Artwork 9", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_10.jpg", alt: "Artwork 10", caption: "Oil on canvas • 2026" },
     { src: "figures/pic_11.jpg", alt: "Artwork 11", caption: "Oil on canvas • 2026" },
+    { scr: "figures/IMG_2847.jpeg", alt: "Artwork 12", caption "The open window, oil on canvas, 140 x 120cm, 2026"}
+  
   ];
 
   const grid = document.getElementById("galleryGrid");
