@@ -3,18 +3,15 @@
   console.log("[gallery] gallery.js loaded");
 
   const images = [
-    { src: "figures/pic_1.jpg", alt: "Artwork 1", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_2.jpg", alt: "Artwork 2", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_3.jpg", alt: "Artwork 3", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_4.jpg", alt: "Artwork 4", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_5.jpg", alt: "Artwork 5", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_6.jpg", alt: "Artwork 6", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_7.jpg", alt: "Artwork 7", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_8.jpg", alt: "Artwork 8", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_9.jpg", alt: "Artwork 9", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_10.jpg", alt: "Artwork 10", caption: "Oil on canvas • 2026" },
-    { src: "figures/pic_11.jpg", alt: "Artwork 11", caption: "Oil on canvas • 2026" },
-    { src: "figures/IMG_2847.jpeg", alt: "Artwork 12", caption: "Oil on canvas • 2026" },
+    { src: "figures/IMG_2925.jpeg", alt: "Artwork 1", caption: "The open window, oil and fabric on canvas, 140 x 120cm, 2026" },
+    { src: "figures/IMG_2923.jpeg", alt: "Artwork 2", caption: "von drinnen nach draußen, oil on canvas, 155 x 130cm, 2026" },
+    { src: "figures/IMG_2926.jpeg", alt: "Artwork 3", caption: "march, 4pm, oil on canvas, 115 x 100cm, 2026" },
+    { src: "figures/IMG_2927.jpeg", alt: "Artwork 4", caption: "marthe bathing in summer landscape, Oil on canvas, 90 x 60cm, 2026" },
+    { src: "figures/IMG_2928.jpeg", alt: "Artwork 5", caption: "o.T., acrylic and paper on canvas, 135 x 100cm, 2025" },
+    { src: "figures/IMG_2929.jpeg", alt: "Artwork 6", caption: "surface near auvers, oil on canvas, 80 x 60cm, 2025" },
+    { src: "figures/IMG_2930.jpeg", alt: "Artwork 7", caption: "Exterieur no°2, oil on canvas, 100 x 80cm, 2025" },
+    { src: "figures/IMG_2931.jpeg", alt: "Artwork 8", caption: "Exterieur no°1, oil on canvas, 60 x 40cm, 2025" },
+    
 
   ];
 
