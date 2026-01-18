@@ -11,7 +11,7 @@
     { src: "figures/IMG_2929.jpeg", alt: "Artwork 6", caption: "surface near auvers, oil on canvas, 80 x 60cm, 2025" },
     { src: "figures/IMG_2930.jpeg", alt: "Artwork 7", caption: "Exterieur no°2, oil on canvas, 100 x 80cm, 2025" },
     { src: "figures/IMG_2931.jpeg", alt: "Artwork 8", caption: "Exterieur no°1, oil on canvas, 60 x 40cm, 2025" },
-    
+    { src: "figures/IMG_2932.jpeg", alt: "Artwork 7", caption: "o.T., acrylic, fabric and paper on canvas, 60 x 40cm, 2025" },
 
   ];
 
