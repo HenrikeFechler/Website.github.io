@@ -3,14 +3,14 @@
   console.log("[gallery] gallery.js loaded");
 
   const images = [
-    { src: "figures/IMG_2925.jpeg", alt: "Artwork 1", caption: "The open window, oil and fabric on canvas, 140 x 120cm, 2026" },
+    { src: "figures/IMG_2925.jpeg", alt: "Artwork 1", caption: "Offenes Fenster, oil and fabric on canvas, 140 x 120cm, 2026" },
     { src: "figures/IMG_2923.jpeg", alt: "Artwork 2", caption: "von drinnen nach draußen, oil on canvas, 155 x 130cm, 2026" },
-    { src: "figures/IMG_2926.jpeg", alt: "Artwork 3", caption: "march, 4pm, oil on canvas, 115 x 100cm, 2026" },
-    { src: "figures/IMG_2927.jpeg", alt: "Artwork 4", caption: "marthe bathing in summer landscape, Oil on canvas, 90 x 60cm, 2026" },
+    { src: "figures/IMG_2926.jpeg", alt: "Artwork 3", caption: "März, 3 Uhr, Nachmittag, oil on canvas, 115 x 100cm, 2026" },
+    { src: "figures/IMG_2927.jpeg", alt: "Artwork 4", caption: "muscari, Oil on canvas, 90 x 60cm, 2026" },
     { src: "figures/IMG_2928.jpeg", alt: "Artwork 5", caption: "o.T., acrylic and paper on canvas, 135 x 100cm, 2025" },
-    { src: "figures/IMG_2929.jpeg", alt: "Artwork 6", caption: "surface near auvers, oil on canvas, 80 x 60cm, 2025" },
-    { src: "figures/IMG_2930.jpeg", alt: "Artwork 7", caption: "Exterieur no°2, oil on canvas, 100 x 80cm, 2025" },
-    { src: "figures/IMG_2931.jpeg", alt: "Artwork 8", caption: "Exterieur no°1, oil on canvas, 60 x 40cm, 2025" },
+    { src: "figures/IMG_2929.jpeg", alt: "Artwork 6", caption: "Oberfläche bei auvers, oil on canvas, 80 x 60cm, 2025" },
+    { src: "figures/IMG_2930.jpeg", alt: "Artwork 7", caption: "o.T., oil on canvas, 100 x 80cm, 2025" },
+    { src: "figures/IMG_2931.jpeg", alt: "Artwork 8", caption: "o.T., oil on canvas, 60 x 40cm, 2025" },
     { src: "figures/IMG_2932.jpeg", alt: "Artwork 7", caption: "o.T., acrylic, fabric and paper on canvas, 60 x 40cm, 2025" },
 
   ];
