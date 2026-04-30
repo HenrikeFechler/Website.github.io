@@ -272,11 +272,10 @@ code {
   animation-fill-mode: both; /* helps avoid “blank” states at boundaries */
 }
 
-/* 3 slides stagger */
+/* 2 slides stagger */
 .hero-slide:nth-child(1) { animation-delay: 0s; }
 .hero-slide:nth-child(2) { animation-delay: 6s; }
-.hero-slide:nth-child(3) { animation-delay: 12s; }
-.hero-slide:nth-child(4) { animation-delay: 18s; }
+
 
 @keyframes heroFade {
   0%    { opacity: 0; }
