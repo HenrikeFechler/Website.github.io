@@ -246,43 +246,24 @@ code {
 
 
 /* -------------------- Hero slideshow -------------------- */
+/* -------------------- Hero image -------------------- */
 .hero {
   position: relative;
   height: min(92vh, 860px);
   margin-bottom: 34px;
   overflow: hidden;
-  /* border-bottom: 1px solid var(--line); */
 }
 
-.hero-slides {
+.hero-image {
   position: absolute;
   inset: 0;
 }
 
-.hero-slide {
-  position: absolute;
-  inset: 0;
+.hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  opacity: 0;
-  animation: heroFade 24s infinite;
-  transform: scale(1.02);
-  animation-fill-mode: both; /* helps avoid “blank” states at boundaries */
-}
-
-/* 2 slides stagger */
-.hero-slide:nth-child(1) { animation-delay: 0s; }
-.hero-slide:nth-child(2) { animation-delay: 6s; }
-
-
-@keyframes heroFade {
-  0%    { opacity: 0; }
-  2.5%  { opacity: 1; }   /* fade in ~0.6s */
-  22.5% { opacity: 1; }   /* hold ~4.8s */
-  25%   { opacity: 0; }   /* fade out ~0.6s */
-  100%  { opacity: 0; }
+  display: block;
 }
 
 .hero-overlay {
