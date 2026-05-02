@@ -5,7 +5,7 @@
   const images = [
     { src: "figures/IMG_am tarn", alt: "Artwork 10", caption: "am Tarn, oil on sewn canvas, 50 x 40cm, 2026" },
     { src: "figures/IMG_3271.jpeg", alt: "Artwork 14", caption: "Kontrapunkt, oil on sewn canvas, 100 x 135cm, 2026" },
-    { src: "figures/Vieux port", alt: "Artwork 13", caption: "vieux port, oil on sewn canvas, 58 x 51cm, 2026" },
+    { src: "figures/IMG_3455.jpeg", alt: "Artwork 13", caption: "vieux port, oil on sewn canvas, 58 x 51cm, 2026" },
     { src: "figures/IMG_zwischen den schären", alt: "Artwork 11", caption: "Zwischen den Schären, oil on sewn canvas, 100 x 120cm, 2026" },
     { src: "figures/IMG_silberbaum.jpeg", alt: "Artwork 12", caption: "Silberbaumblätterchen, oil on sewn canvas, 80 x 60cm, 2026" }, 
     { src: "figures/IMG_2925.jpeg", alt: "Artwork 1", caption: "Offenes Fenster, oil and fabric on canvas, 140 x 120cm, 2025" },
