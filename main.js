@@ -21,7 +21,7 @@
 
   const cv = document.getElementById("cvText"); // or "aboutText" if that's your HTML id
   if (cv) {
-      cv.textContent = `Born 2004, Stromberg, Germany
+      cv.textContent = `Born 2004, Oelde, Germany
   Since 2023, studying at Kunstakademie Münster
 
   Group exhibitions
