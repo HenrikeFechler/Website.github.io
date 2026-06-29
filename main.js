@@ -27,8 +27,14 @@
 
   Group exhibitions
 
+  2026 Malerei 26, Museum Abtei Liesborn, Kreis Warendorf
   2025 Stations, ESMOA, Los Angeles
-  2025 Opened, Freeters, Bonn`;
+  2025 Opened, Freeters, Bonn;
+
+  Stipendien
+
+  2026 Sommerstipendium zur Förderung junger Kunst, VR-Bank Westmünsterland
+  
     }
   // New: mobile menu toggle
     const header = document.getElementById("siteHeader");
