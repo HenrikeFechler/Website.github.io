@@ -33,7 +33,7 @@
 
   Stipendien
 
-  2026 Sommerstipendium zur Förderung junger Kunst, VR-Bank Westmünsterland
+  2026 Sommerstipendium zur Förderung junger Kunst, VR-Bank Westmünsterland´
   
     }
   // New: mobile menu toggle
