@@ -18,6 +18,9 @@
     { src: "figures/IMG_2930.jpeg", alt: "Artwork 7", caption: "o.T., oil on canvas, 100 x 80cm, 2025" },
     { src: "figures/IMG_2931.jpeg", alt: "Artwork 8", caption: "o.T., oil on canvas, 60 x 40cm, 2025" },
     { src: "figures/IMG_2932.jpeg", alt: "Artwork 9", caption: "o.T., acrylic, fabric and paper on canvas, 60 x 40cm, 2025" },
+    { src: "figures/hummelflug.jpeg", alt: "Artwork 16", caption: "Hummelflug, oil on canvas, 50 x 40 cm,2026" },
+    { src: "figures/flügeltänzerin.jpeg", alt: "Artwork 17", caption: "Flügeltänzerin, oil on canvas, 50 x 40 cm,2026" },
+    { src: "figures/regentspark.jpeg", alt: "Artwork 18", caption: "Regentˋs Park, oil on canvas, 50 x 40 cm,2026" },
     
   ];
 
