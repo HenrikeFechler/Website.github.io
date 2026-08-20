@@ -3,6 +3,7 @@
   console.log("[gallery] gallery.js loaded");
 
   const images = [
+    { src: "figures/IMG_0213.jpeg", alt: "Artwork 19", caption: "Hafengeplätscher, oil on canvas, 50 x 60 cm, 2026" },
     { src: "figures/hummelflug.jpeg", alt: "Artwork 16", caption: "Hummelflug, oil on canvas, 50 x 40 cm,2026" },
     { src: "figures/flügeltänzerin.jpeg", alt: "Artwork 17", caption: "Flügeltänzerin, oil on canvas, 50 x 40 cm,2026" },
     { src: "figures/regentspark.jpeg", alt: "Artwork 18", caption: "Regentˋs Park, oil on canvas, 50 x 40 cm,2026" },
@@ -13,7 +14,7 @@
     { src: "figures/IMG_zwischen den schären", alt: "Artwork 11", caption: "Zwischen den Schären, oil on sewn canvas, 100 x 120cm, 2026" },
     { src: "figures/IMG_silberbaum.jpeg", alt: "Artwork 12", caption: "Silberbaumblätterchen, oil on sewn canvas, 80 x 60cm, 2026" }, 
     { src: "figures/IMG_2925.jpeg", alt: "Artwork 1", caption: "Offenes Fenster, oil and fabric on canvas, 140 x 120cm, 2025" },
-    { src: "figures/IMG_2923.jpeg", alt: "Artwork 2", caption: "von drinnen nach draußen, oil on sewn canvas, 155 x 130cm, 2025" },
+    { src: "figures/IMG_2923.jpeg", alt: "Artwork 2", caption: "Von drinnen nach draußen, oil on sewn canvas, 155 x 130cm, 2025" },
     { src: "figures/IMG_2926.jpeg", alt: "Artwork 3", caption: "März, 3 Uhr, Nachmittag, oil on sewn canvas, 115 x 100cm, 2025" },
     { src: "figures/IMG_2927.jpeg", alt: "Artwork 4", caption: "muscari, Oil on sewn canvas, 90 x 60cm, 2026" },
     { src: "figures/IMG_2928.jpeg", alt: "Artwork 5", caption: "o.T., acrylic and paper on canvas, 135 x 100cm, 2025" },
