@@ -3,7 +3,7 @@
   console.log("[gallery] gallery.js loaded");
 
   const images = [
-    { src: "figures/IMG_0213.jpeg", alt: "Artwork 19", caption: "Hafengeplätscher, oil on canvas, 50 x 60 cm, 2026" },
+    { src: "figures/IMG_0213.jpeg", alt: "Artwork 19", caption: "Hafengeplätscher, oil on sewn canvas, 50 x 60 cm, 2026" },
     { src: "figures/hummelflug.jpeg", alt: "Artwork 16", caption: "Hummelflug, oil on canvas, 50 x 40 cm,2026" },
     { src: "figures/flügeltänzerin.jpeg", alt: "Artwork 17", caption: "Flügeltänzerin, oil on canvas, 50 x 40 cm,2026" },
     { src: "figures/regentspark.jpeg", alt: "Artwork 18", caption: "Regentˋs Park, oil on canvas, 50 x 40 cm,2026" },
