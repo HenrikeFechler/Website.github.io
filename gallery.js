@@ -3,7 +3,10 @@
   console.log("[gallery] gallery.js loaded");
 
   const images = [
-    { src: "figures/IMG_0213.jpeg", alt: "Artwork 19", caption: "Hafengeplätscher, Öl auf zusammengenähter Leinwand, 50 x 60 cm, 2026" },
+
+    { src: "figures/IMG_0408.jpeg", alt: "Artwork 21", caption: "Haubentaucherstunde, Öl auf zusammengenähter Leinwand, 75 x 190 cm, 2026" },
+    { src: "figures/IMG_0407.jpeg", alt: "Artwork 20", caption: "Bei Malmbäck, Öl auf Leinwand, 100 x 75 cm, 2026" },
+    { src: "figures/IMG_0405.jpeg", alt: "Artwork 19", caption: "Hafengeplätscher, Öl auf zusammengenähter Leinwand, 50 x 60 cm, 2026" },
     { src: "figures/hummelflug.jpeg", alt: "Artwork 16", caption: "Hummelflug, Öl auf Leinwand, 50 x 40 cm,2026" },
     { src: "figures/flügeltänzerin.jpeg", alt: "Artwork 17", caption: "Flügeltänzerin, Öl auf Leinwand, 50 x 40 cm,2026" },
     { src: "figures/regentspark.jpeg", alt: "Artwork 18", caption: "Regentˋs Park, Öl auf Leinwand, 50 x 40 cm,2026" },
