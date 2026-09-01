@@ -22,10 +22,11 @@
   const cv = document.getElementById("cvText"); // or "aboutText" if that's your HTML id
   if (cv) {
       cv.textContent = `Henrike Fechler
-  Born 2004, Oelde, Germany
-  Since 2023, studying at Kunstakademie Münster
+  Geboren 2004 in Oelde, Deutschland
+  Seit 2023, Studium an der Kunstakademie Münster
+  seit 2026 in der Klasse von Cornelius Völker
 
-  Group exhibitions
+  Gruppenausstellungen
 
   2026 Malerei 26, Museum Abtei Liesborn, Kreis Warendorf
   2025 Stations, ESMOA, Los Angeles
